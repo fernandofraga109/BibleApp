@@ -1,0 +1,83 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      	<button menuClose ion-item (click)="openBook('gn')">Gênesis</button>
+		<button menuClose ion-item (click)="openBook('ex')">Êxodo</button>
+		<button menuClose ion-item (click)="openBook('lv')">Levítico</button>
+		<button menuClose ion-item (click)="openBook('nm')">Números</button>
+		<button menuClose ion-item (click)="openBook('dt')">Deoteronômio</button>
+		<button menuClose ion-item (click)="openBook('js')">Josué</button>
+		<button menuClose ion-item (click)="openBook('jz')">Juízes</button>
+		<button menuClose ion-item (click)="openBook('rt')">Rute</button>
+		<button menuClose ion-item (click)="openPopenBook('1sm')">I Samuel</button>
+		<button menuClose ion-item (click)="openBook('2sm')">II Samuel</button>
+		<button menuClose ion-item (click)="openBook('1rs')">I Reis</button>
+		<button menuClose ion-item (click)="openBook('2rs')">II Reis</button>
+		<button menuClose ion-item (click)="openBook('2rs')">II Reis</button>
+		<button menuClose ion-item (click)="openBook('1cr')">I Crônicas</button>
+		<button menuClose ion-item (click)="openBook('1cr')">II Crônicas</button>
+		<button menuClose ion-item (click)="openBook('ed')">Esdras</button>
+		<button menuClose ion-item (click)="openBook('ed')">Neemias</button>
+		<button menuClose ion-item (click)="openBook('ed')">Ester</button>
+		<button menuClose ion-item (click)="openBook('ed')">Jó</button>
+		<button menuClose ion-item (click)="openBook('ed')">Salmos</button>
+		<button menuClose ion-item (click)="openBook('ed')">Provérbios</button>
+		<button menuClose ion-item (click)="openBook('ed')">Eclesiastes</button>
+		<button menuClose ion-item (click)="openBook('ed')">Cantares de Salomão</button>
+		<button menuClose ion-item (click)="openBook('ed')">Isaías</button>
+		<button menuClose ion-item (click)="openBook('ed')">Jeremias</button>
+		<button menuClose ion-item (click)="openBook('ed')">Lamentações</button>
+		<button menuClose ion-item (click)="openBook('ed')">Ezequiel</button>
+		<button menuClose ion-item (click)="openBook('ed')">Joel</button>
+		<button menuClose ion-item (click)="openBook('ed')">Amós</button>
+		<button menuClose ion-item (click)="openBook('ed')">Jonas</button>
+		<button menuClose ion-item (click)="openBook('ed')">Miquéias</button>
+		<button menuClose ion-item (click)="openBook('ed')">Naum</button>
+		<button menuClose ion-item (click)="openBook('ed')">Habacuque</button>
+		<button menuClose ion-item (click)="openBook('ed')">Zacarias</button>
+		<button menuClose ion-item (click)="openBook('ed')">Malaquias</button>
+		<button menuClose ion-item (click)="openBook('ed')">Mateus</button>
+		<button menuClose ion-item (click)="openBook('ed')">Marcos</button>
+		<button menuClose ion-item (click)="openBook('ed')">Lucas</button>
+		<button menuClose ion-item (click)="openBook('ed')">Marcos</button>
+		<button menuClose ion-item (click)="openBook('ed')">João</button>
+		<button menuClose ion-item (click)="openBook('ed')">Romanos</button>
+		<button menuClose ion-item (click)="openBook('ed')">I Coríntios</button>
+		<button menuClose ion-item (click)="openBook('ed')">II Coríntios</button>
+		<button menuClose ion-item (click)="openBook('ed')">Gálatas</button>
+		<button menuClose ion-item (click)="openBook('ed')">Efésios</button>
+		<button menuClose ion-item (click)="openBook('ed')">Filipenses</button>
+		<button menuClose ion-item (click)="openBook('ed')">Colossenses</button>
+		<button menuClose ion-item (click)="openBook('ed')">I Tessalonicenses</button>
+		<button menuClose ion-item (click)="openBook('ed')">II Tessalonicenses</button>
+		<button menuClose ion-item (click)="openBook('ed')">I Timóteo</button>
+		<button menuClose ion-item (click)="openBook('ed')">II Timóteo</button>
+		<button menuClose ion-item (click)="openBook('ed')">Tito</button>
+		<button menuClose ion-item (click)="openBook('ed')">Marcos</button>
+		<button menuClose ion-item (click)="openBook('ed')">Filemom</button>
+		<button menuClose ion-item (click)="openBook('ed')">Hebreus</button>
+		<button menuClose ion-item (click)="openBook('ed')">Tiago</button>
+		<button menuClose ion-item (click)="openBook('ed')">I Pedro</button>
+		<button menuClose ion-item (click)="openBook('ed')">II Pedro</button>
+		<button menuClose ion-item (click)="openBook('ed')">I João</button>
+		<button menuClose ion-item (click)="openBook('ed')">II João</button>
+		<button menuClose ion-item (click)="openBook('ed')">III João</button>
+		<button menuClose ion-item (click)="openBook('ed')">Judas</button>
+		<button menuClose ion-item (click)="openBook('ed')">Apocalipse</button>
+		
+      
+      
+      
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
