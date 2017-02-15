@@ -2,17 +2,23 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+//pages
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
+import { BookPage } from '../pages/book/book';
+
+//prividers
+import { RepositoryBookService } from '../providers/repository-book-service';
 
 
 @Component( {
-    templateUrl: 'app.html'
+    templateUrl: 'app.html',
+    providers: [RepositoryBookService]
 })
 export class MyApp {
     @ViewChild( Nav ) nav: Nav;
 
-    rootPage: any = Page1;
+    rootPage: any = BookPage;
 
     pages: Array<{ title: string, component: any }>;
 
@@ -43,6 +49,8 @@ export class MyApp {
     }
 
     openBook( book ) {
+        let page: any = BookPage;
+        this.nav.setRoot( page, book );
         console.log( book, "ABRINDO LIVRO" );
     }
 
