@@ -13,6 +13,7 @@ export class BookPage {
     parameters: any;
     book: any;
     grid: Array<Array<string>>; //array of arrays
+    
 
     constructor( public navCtrl: NavController,
         public navParams: NavParams,
@@ -57,8 +58,30 @@ export class BookPage {
 
             rowNum++; //go on to the next row
         }
-        console.log(this.grid, "GRID");
-
+        console.log(this.grid, "GRID GERADA");
+        
+    }
+    
+    getRow(_grid) {
+        let ret;
+        if (_grid != null) {
+            ret = Object.getOwnPropertyNames(_grid);
+        }
+        return ret;
+    }
+    
+    
+    getBookName() {
+        let ret = "Livros"; 
+    
+        if (this.book != null) {
+            ret = this.book.book;
+        }
+        return ret;
+    }
+    
+    openVerse(verse) {
+        console.log(verse,"VERSO!!");
     }
 
     ionViewDidLoad() {

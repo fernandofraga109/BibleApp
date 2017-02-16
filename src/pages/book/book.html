@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Book Page</ion-title>
+    <ion-title>{{getBookName()}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,9 +11,9 @@
 
 <ion-grid>
   <ion-row *ngFor="let row of grid">
-  	
+  	 
     <ion-col width-20 *ngFor="let v of row">
-      <ion-title>{{v}}</ion-title>
+      <ion-label (click)="openVerse(v)">{{ getRow(v) }}</ion-label>
    	</ion-col>
    
   </ion-row>
