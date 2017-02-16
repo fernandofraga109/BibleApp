@@ -7,12 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>verse</ion-title>
+    <ion-title>{{getNameBook()}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+<ion-grid>
+  <ion-row *ngFor="let row of arrayVerse">
+  	 
+    <ion-col width-20 >
+      <ion-label>{{ getNumerVersicle(row) }}</ion-label>
+   	</ion-col>
+   
+  </ion-row>
+</ion-grid>
 
 </ion-content>

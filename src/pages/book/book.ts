@@ -14,7 +14,7 @@ export class BookPage {
     parameters: any;
     book: any;
     grid: Array<Array<string>>; //array of arrays
-    
+
 
     constructor( public navCtrl: NavController,
         public navParams: NavParams,
@@ -38,59 +38,62 @@ export class BookPage {
             this.grid[rowNum] = Array( 5 ); //declare two elements per row
 
             if ( this.book.chapters[i] ) { //check file URI exists
-                this.grid[rowNum][0] = this.book.chapters[i] ; //insert image JSON.stringify(
+                this.grid[rowNum][0] = this.book.chapters[i]; //insert image JSON.stringify(
             }
 
             if ( this.book.chapters[i + 1] ) { //repeat for the second image
                 this.grid[rowNum][1] = this.book.chapters[i + 1];
             }
-            
+
             if ( this.book.chapters[i + 2] ) { //repeat for the second image
                 this.grid[rowNum][2] = this.book.chapters[i + 2];
             }
-            
+
             if ( this.book.chapters[i + 3] ) { //repeat for the second image
                 this.grid[rowNum][3] = this.book.chapters[i + 3];
             }
-            
+
             if ( this.book.chapters[i + 4] ) { //repeat for the second image
                 this.grid[rowNum][4] = this.book.chapters[i + 4];
             }
 
             rowNum++; //go on to the next row
         }
-        console.log(this.grid, "GRID GERADA");
-        
+        console.log( this.grid, "GRID GERADA" );
+
     }
-    
-    
-    getRow(_grid) {
+
+
+    getRow( _grid ) {
         let ret;
-        if (_grid != null) {
-            ret = Object.getOwnPropertyNames(_grid);
+        if ( _grid != null ) {
+            ret = Object.getOwnPropertyNames( _grid );
         }
         return ret;
     }
-    
-    
+
+
     getBookName() {
-        let ret = "Livros"; 
-    
-        if (this.book != null) {
+        let ret = "Livros";
+
+        if ( this.book != null ) {
             ret = this.book.book;
         }
         return ret;
     }
-    
-    openVerse(verse) {
-        console.log(verse,"VERSO!!");
+
+    openVerse( verse ) {
+        console.log( verse, "VERSO!!" );
         let page: any = VersePage;
         console.log( page, "ABRINDO LIVRO" );
-        this.navCtrl.push(page, verse );
-        
+        this.navCtrl.push( page, {
+                                    "book": this.book,
+                                    "verse": verse
+                                  });
+
     }
-    
-    
+
+
 
     ionViewDidLoad() {
         console.log( 'ionViewDidLoad BookPage' );
