@@ -6,6 +6,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { BookPage } from '../pages/book/book';
+import { VersePage } from '../pages/verse/verse';
 
 //prividers
 import { RepositoryBookService } from '../providers/repository-book-service';

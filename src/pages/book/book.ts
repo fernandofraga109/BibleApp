@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { VersePage } from '../verse/verse';
 
 import { RepositoryBookService } from '../../providers/repository-book-service';
 
@@ -62,6 +63,7 @@ export class BookPage {
         
     }
     
+    
     getRow(_grid) {
         let ret;
         if (_grid != null) {
@@ -82,7 +84,13 @@ export class BookPage {
     
     openVerse(verse) {
         console.log(verse,"VERSO!!");
+        let page: any = VersePage;
+        console.log( page, "ABRINDO LIVRO" );
+        this.navCtrl.push(page, verse );
+        
     }
+    
+    
 
     ionViewDidLoad() {
         console.log( 'ionViewDidLoad BookPage' );
