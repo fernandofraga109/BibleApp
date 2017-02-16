@@ -18,11 +18,11 @@
 <ion-grid>
   <ion-row *ngFor="let row of arrayVerse">
   	 
-    <ion-col width-20 >
-      <ion-label>{{ getNumerVersicle(row) }}</ion-label>
+    <ion-col width-10 >
+ 		{{ getNumerVersicle(row) }}
    	</ion-col>
-    <ion-col width-50 >
-      <ion-label>{{ row[getNumerVersicle(row)] }}</ion-label>
+    <ion-col width-90 >
+      {{ row[getNumerVersicle(row)] }}
    	</ion-col>
    
   </ion-row>
