@@ -9,6 +9,14 @@
 
 <ion-content padding>
 
-
+<ion-grid>
+  <ion-row *ngFor="let row of grid">
+  	
+    <ion-col width-20 *ngFor="let v of row">
+      <ion-title>{{v}}</ion-title>
+   	</ion-col>
+   
+  </ion-row>
+</ion-grid>
 
 </ion-content>

@@ -27,6 +27,7 @@ export class RepositoryBookService {
                 for ( let i = 0; i < body.length ; i++ ) {
                     this.books.push( body[i]  );
                 }
+                console.log("CARREGOU ");
             } else {
                 console.log( res, "NOT FOUND RESPONSE" );
             }
