@@ -8,24 +8,31 @@
 
   <ion-navbar>
     <ion-title>{{getNameBook()}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="cog"></ion-icon> 
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content #popoverContent  padding class="popover-page">
+ <div #popoverText class="text-to-change">
 
-<ion-grid>
-  <ion-row *ngFor="let row of arrayVerse">
-  	 
-    <ion-col width-10 >
- 		{{ getNumerVersicle(row) }}
-   	</ion-col>
-    <ion-col width-90 >
-      {{ row[getNumerVersicle(row)] }}
-   	</ion-col>
-   
-  </ion-row>
-</ion-grid>
+	<ion-grid>
+	  <ion-row *ngFor="let row of arrayVerse">
+	  	 
+	    <ion-col width-10 >
+	 		{{ getNumerVersicle(row) }}
+	   	</ion-col>
+	    <ion-col width-90 >
+	      {{ row[getNumerVersicle(row)] }}
+	   	</ion-col>
+	   
+	  </ion-row>
+	</ion-grid>
+</div>
 
 </ion-content>

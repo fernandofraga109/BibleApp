@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
+import { NavController, NavParams, PopoverController } from 'ionic-angular';
+import { ViewChild, ElementRef } from '@angular/core';
+import { PopoverPage } from '../popover/popover';
 
 @Component( {
     selector: 'page-verse',
@@ -12,9 +13,13 @@ export class VersePage {
      verse:any;
      numVerse:any;
      arrayVerse = [];
+     
+     @ViewChild('popoverContent', { read: ElementRef }) content: ElementRef;
+     @ViewChild('popoverText', { read: ElementRef }) text: ElementRef;
 
     constructor( public navCtrl: NavController,
-                 public navParams: NavParams ) {
+                 public navParams: NavParams,
+                 private popoverCtrl: PopoverController) {
     
         this.book = navParams.get("book");
         this.verse = navParams.get("verse");
@@ -59,5 +64,17 @@ export class VersePage {
     getNameBook() {
         return this.book.book + " " + this.numVerse ;
     }
+    
+    presentPopover(ev) {
+
+        let popover = this.popoverCtrl.create(PopoverPage, {
+          contentEle: this.content.nativeElement,
+          textEle: this.text.nativeElement
+        });
+
+        popover.present({
+          ev: ev
+        });
+      }
 
 }
