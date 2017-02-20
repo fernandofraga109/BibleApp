@@ -13,7 +13,9 @@
   <ion-row *ngFor="let row of grid">
   	 
     <ion-col width-20 *ngFor="let v of row">
-      <ion-label (click)="openVerse(v)">{{ getRow(v) }}</ion-label>
+      <div style="text-align:center !important">
+      <button (click)="openVerse(v)" ion-button color="dark" clear>{{ getRow(v) }}</button>
+      </div>
    	</ion-col>
    
   </ion-row>
