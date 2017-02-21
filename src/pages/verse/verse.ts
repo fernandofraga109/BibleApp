@@ -30,11 +30,10 @@ export class VersePage {
     }
 
     ionViewDidLoad() {
-        
-        this.loadVerse(); 
+        this.loadVerse();
     }
-    
-    loadVerse() { 
+
+    loadVerse() {
         this.arrayVerse = [];
         var nullArray = [];
         for ( let key in this.verse[this.numVerse] ) {
@@ -44,8 +43,8 @@ export class VersePage {
 
         }
     }
-    
-    
+
+
     getArrayVerse() {
         return this.arrayVerse;
     }
@@ -73,27 +72,23 @@ export class VersePage {
             ev: ev
         });
     }
-    
+
     privioustVerse() {
-        console.log(this.book, "before!!!");
-        
-        if (this.numVerse > 1 ) {
-            this.numVerse = this.numVerse -1;
-            this.verse = this.book.chapters[this.numVerse-1];
+        if ( this.numVerse > 1 ) {
+            this.numVerse = this.numVerse - 1;
+            this.verse = this.book.chapters[this.numVerse - 1];
             this.loadVerse();
         }
     }
-    
+
     nextVerse() {
-        console.log(this.book, "NEXT!!!");
-        
-        if (this.numVerse != this.lastVerse()) {
-            this.numVerse = this.numVerse+1;
-            this.verse = this.book.chapters[this.numVerse+1];
+        if ( this.numVerse != this.lastVerse() ) {
+            this.numVerse = this.numVerse++;
+            this.verse = this.book.chapters[this.numVerse++];
             this.loadVerse();
         }
     }
-    
+
     lastVerse() {
         return this.book.chapters.length;
     }
