@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { LoadingController } from 'ionic-angular';
 
 
 @Injectable()
@@ -11,16 +12,20 @@ export class RepositoryBookService {
     books: any[];
     data: Object;
 
-    constructor( public http: Http ) {
+    constructor( public http: Http , public loadingCtrl: LoadingController) {
         console.log( 'Hello RepositoryBookService Provider' );
-        this.loadBooks();
     }
 
+    
+    
+    loadBooksPromisse() {
+        return this.http.get('./bibliaLinguagemNVI.json');
+    }
 
     loadBooks() {
         
-        
         this.http.get('./bibliaLinguagemNVI.json').toPromise().then(( res ) => {
+            
             if ( res != null ) {
                 let body = JSON.parse(res.text());
                 this.books = [];
@@ -28,6 +33,7 @@ export class RepositoryBookService {
                     this.books.push( body[i]  );
                 }
                 console.log("CARREGOU ");
+           
             } else {
                 console.log( res, "NOT FOUND RESPONSE" );
             }

@@ -17,7 +17,12 @@ import { BookSearchPage } from '../pages/book-search/book-search';
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
-        backButtonText: 'Voltar'
+        backButtonText: '',
+        iconMode: 'ios',
+        modalEnter: 'modal-slide-in',
+        modalLeave: 'modal-slide-out',
+        tabsPlacement: 'bottom',
+        pageTransition: 'ios'
       }, {}
     )],
   bootstrap: [IonicApp],
