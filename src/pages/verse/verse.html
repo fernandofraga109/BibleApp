@@ -28,12 +28,12 @@
  
 
 	<ion-grid>
-	  <ion-row *ngFor="let row of arrayVerse">
+	  <ion-row *ngFor="let row of getArrayVerse()">
 	  	 
 	    <ion-col width-10 >
 	 		{{ getNumerVersicle(row) }}
 	   	</ion-col>
-	    <ion-col width-90 >
+	    <ion-col width-90  >
 	      {{ row[getNumerVersicle(row)] }}
 	   	</ion-col>
 	   
@@ -45,3 +45,29 @@
 </div>
 
 </ion-content>
+
+<ion-footer >
+  <ion-toolbar class="toolbarFooter" >
+    <ion-grid>
+	  <ion-row>
+	  	 
+	    <ion-col width-10 >
+	 		<button ion-button (click)="privioustVerse()" >
+		    	<ion-icon name="arrow-back"></ion-icon> 
+		    </button>
+	   	</ion-col>
+	    <ion-col width-80  >
+	      
+	   	</ion-col>
+	   	
+	   	<ion-col width-10  >
+	   		<button ion-button  (click)="nextVerse()">
+		    	<ion-icon name="arrow-forward"></ion-icon> 
+		    </button>
+	    </ion-col>
+	   
+	  </ion-row>
+	  
+	</ion-grid>
+  </ion-toolbar>
+</ion-footer>
