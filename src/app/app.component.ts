@@ -4,6 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 //pages
 import { BookPage } from '../pages/book/book';
+import { BookSearchPage } from '../pages/book-search/book-search';
 import { VersePage } from '../pages/verse/verse';
 import { PopoverPage } from '../pages/popover/popover';
 
@@ -18,7 +19,7 @@ import { RepositoryBookService } from '../providers/repository-book-service';
 export class MyApp {
     @ViewChild( Nav ) nav: Nav;
 
-    rootPage: any = BookPage;
+    rootPage: any = BookSearchPage;
 
     pages: Array<{ title: string, component: any }>;
 
