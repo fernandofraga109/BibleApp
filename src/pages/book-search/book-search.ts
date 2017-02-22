@@ -131,6 +131,10 @@ export class BookSearchPage {
                             this.repositoryBookService.books.push( body[i] );
                         }
                         console.log( "CARREGOU " );
+                        loader.dismiss();
+                        let page: any = BookPage;
+                        this.app.getRootNav().push( page, book );
+                        console.log( book, "ABRINDO LIVRO" );
 
                     } else {
                         console.log( res, "NOT FOUND RESPONSE" );
@@ -139,15 +143,12 @@ export class BookSearchPage {
                 }).catch(( err ) => {
                     console.log( err, "ERROR" );
                 });
-                loader.dismiss();
-                let page: any = BookPage;
-                this.app.getRootNav().push( page, book );
-                console.log( book, "ABRINDO LIVRO" );
+
             });
 
 
 
-            this.repositoryBookService.loadBooks();
+
         } else {
             let page: any = BookPage;
             this.app.getRootNav().push( page, book );

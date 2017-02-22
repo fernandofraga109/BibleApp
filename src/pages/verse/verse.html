@@ -10,7 +10,7 @@
     <ion-title>{{getNameBook()}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="presentPopover($event)">
-        <ion-icon name="build"></ion-icon> 
+        <ion-icon name="build"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -18,30 +18,26 @@
 </ion-header>
 
 
-<div style="position: absolute; bottom: 0px; width: 100%">
-        <div style="text-align: center">
-          <p>Bottom</p>
-        </div>
-    </div>
+
 <ion-content #popoverContent  padding class="popover-page">
  <div #popoverText class="text-to-change">
- 
+
 
 	<ion-grid>
 	  <ion-row *ngFor="let row of getArrayVerse()">
-	  	 
+
 	    <ion-col width-10 >
 	 		{{ getNumerVersicle(row) }}
 	   	</ion-col>
 	    <ion-col width-90  >
 	      {{ row[getNumerVersicle(row)] }}
 	   	</ion-col>
-	   
+
 	  </ion-row>
-	  
+
 	</ion-grid>
-	
-	
+
+
 </div>
 
 </ion-content>
@@ -50,24 +46,24 @@
   <ion-toolbar class="toolbarFooter" >
     <ion-grid>
 	  <ion-row>
-	  	 
+
 	    <ion-col width-10 >
-	 		<button ion-button outline (click)="privioustVerse()" >
-		    	<ion-icon name="arrow-back"></ion-icon> 
+	 		<button ion-button clear (click)="privioustVerse()" style="padding: 0px 2px !important;" >
+		    	<ion-icon name="arrow-back"></ion-icon>
 		    </button>
 	   	</ion-col>
 	    <ion-col width-80  >
-	      
+
 	   	</ion-col>
-	   	
+
 	   	<ion-col width-10  >
-	   		<button ion-button outline (click)="nextVerse()">
-		    	<ion-icon name="arrow-forward"></ion-icon> 
+	   		<button ion-button clear (click)="nextVerse()" style="padding: 0px 2px !important;">
+		    	<ion-icon name="arrow-forward"> </ion-icon>
 		    </button>
 	    </ion-col>
-	   
+
 	  </ion-row>
-	  
+
 	</ion-grid>
   </ion-toolbar>
 </ion-footer>

@@ -17,7 +17,13 @@
 
 
 
-.toolbarFooter {
-    height: 35px !important;
-    min-height: 36px !important;
+.toolbarFooter  {
+    height: 45px !important;
+    min-height: 46px !important;
+
+}
+
+.toolbarFooter ion-icon {
+    display: inline-block;
+    font-size: 1.9em  !important;
 }
