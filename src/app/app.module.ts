@@ -6,6 +6,7 @@ import { BookPage } from '../pages/book/book';
 import { VersePage } from '../pages/verse/verse';
 import { PopoverPage } from '../pages/popover/popover';
 import { BookSearchPage } from '../pages/book-search/book-search';
+import { VersionsPage } from '../pages/versions/versions';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { BookSearchPage } from '../pages/book-search/book-search';
     PopoverPage,
     BookPage,
     VersePage,
-    BookSearchPage
+    BookSearchPage,
+    VersionsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -31,7 +33,8 @@ import { BookSearchPage } from '../pages/book-search/book-search';
     PopoverPage,
     BookPage,
     VersePage,
-    BookSearchPage
+    BookSearchPage,
+    VersionsPage
 
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]

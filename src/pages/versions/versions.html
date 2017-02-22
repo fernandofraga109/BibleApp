@@ -7,12 +7,41 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>versions</ion-title>
+    <ion-title>Ver&ccedil;&otilde;s da Biblia</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+	<form (submit)="doSubmit($event)" [formGroup]="langForm">
+    
+
+		<ion-list radio-group formControlName="langs">
+		  <ion-list-header>
+		    Escolha uma Vers&atilde;o
+		    
+		  </ion-list-header>
+		
+		  <ion-item>
+		    <ion-label>Nova Vers&atilde;o Internacional (NVI)</ion-label>
+		    <ion-radio checked="true" value="nvi"></ion-radio>
+		  </ion-item>
+		
+		  <ion-item>
+		    <ion-label>Almeida Corrigida e Fiel (ACF)</ion-label>
+		    <ion-radio value="acf"></ion-radio>
+		  </ion-item>
+		
+		  <ion-item>
+		    <ion-label>Almeida Revisada Imprensa B&iacute;blica (AA)</ion-label>
+		    <ion-radio value="aa"></ion-radio>
+		  </ion-item>
+		</ion-list>
+		
+	</form>	
+
+
 
 </ion-content>
