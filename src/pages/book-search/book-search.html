@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Livros
     </ion-title>
@@ -7,10 +10,40 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar (ionInput)="getItems($event)" placeholder="Buscar" cancelButtonText="Cancelar"></ion-searchbar>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-    <button (click)="openBook(item.number)" ion-button color="dark" clear>{{ item.book }}</button>	 
+
+ <div [ngSwitch]="ordem">
+ <div *ngSwitchCase="'normal'">
+  <ion-searchbar   (ionInput)="getItems($event)" placeholder="Buscar" cancelButtonText="Cancelar"></ion-searchbar>
+   <ion-list>
+    <ion-item *ngFor="let item of items" (click)="openBook(item.number)">
+     {{ item.book }}
     </ion-item>
   </ion-list>
-</ion-content>
+ </div>
+  <div *ngSwitchCase="'alfabetica'">
+  <ion-searchbar  (ionInput)="getItemsAlfabetica($event)" placeholder="Buscar" cancelButtonText="Cancelar"></ion-searchbar>
+   <ion-list>
+    <ion-item *ngFor="let item of itemsAlfabetica" (click)="openBook(item.number)">
+     {{ item.book }}
+    </ion-item>
+  </ion-list>
+  </div>
+ 
+</div>
+
+
+ </ion-content>
+
+<ion-footer >
+
+  <ion-toolbar no-border-bottom>
+    <ion-segment [(ngModel)]="ordem">
+      <ion-segment-button value="normal">
+        Tradicional
+      </ion-segment-button>
+      <ion-segment-button value="alfabetica">
+        Ordem Alfabética
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>
