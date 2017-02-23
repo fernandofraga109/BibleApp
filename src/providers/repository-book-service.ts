@@ -4,45 +4,31 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { LoadingController } from 'ionic-angular';
-
+import { Platform } from 'ionic-angular';
+import 'rxjs/add/operator/map';
+import { SqlService } from './sql-service';
 
 @Injectable()
-export class RepositoryBookService {
+export class RepositoryBookService extends SqlService {
 
     books: any[];
     data: Object;
+    bibleVersion;
 
-    constructor( public http: Http , public loadingCtrl: LoadingController) {
-        console.log( 'Hello RepositoryBookService Provider' );
+    constructor(  public http: Http,
+        public platform: Platform ) {
+        super( platform, "RepositoryBook" );
+        
+        
     }
 
     
     
     loadBooksPromisse() {
-        return this.http.get('./bibliaLinguagemNVI.json');
+        let version = this.bibleVersion.toUpperCase();
+        return this.http.get('./bibliaLinguagem'+version+'.json');
     }
 
-    loadBooks() {
-        
-        this.http.get('./bibliaLinguagemNVI.json').toPromise().then(( res ) => {
-            
-            if ( res != null ) {
-                let body = JSON.parse(res.text());
-                this.books = [];
-                for ( let i = 0; i < body.length ; i++ ) {
-                    this.books.push( body[i]  );
-                }
-                console.log("CARREGOU ");
-           
-            } else {
-                console.log( res, "NOT FOUND RESPONSE" );
-            }
-
-        }).catch(( err ) => {
-            console.log( err, "ERROR" );
-        });
-    }
-    
     getBooks() {
         return this.books;
     }

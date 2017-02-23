@@ -15,32 +15,25 @@
 
 <ion-content padding>
 
-	<form (submit)="doSubmit($event)" [formGroup]="langForm">
-    
+<ion-list radio-group [(ngModel)]="version">
+  <ion-list-header>
+    Escolha a Vers&atilde;o
+  </ion-list-header>
+  <ion-item   >
+    <ion-label>Nova Vers&atilde;o Internacional (NVI)</ion-label>
+    <ion-radio value="nvi" (click)="changeVersion()" ></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>Almeida Corrigida e Fiel (ACF)</ion-label>
+    <ion-radio value="acf" (click)="changeVersion()" ></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>Almeida Revisada Imprensa B&iacute;blica (AA)</ion-label>
+    <ion-radio value="aa" (click)="changeVersion()" ></ion-radio>
+  </ion-item>
+</ion-list>
 
-		<ion-list radio-group formControlName="langs">
-		  <ion-list-header>
-		    Escolha uma Vers&atilde;o
-		    
-		  </ion-list-header>
-		
-		  <ion-item>
-		    <ion-label>Nova Vers&atilde;o Internacional (NVI)</ion-label>
-		    <ion-radio checked="true" value="nvi"></ion-radio>
-		  </ion-item>
-		
-		  <ion-item>
-		    <ion-label>Almeida Corrigida e Fiel (ACF)</ion-label>
-		    <ion-radio value="acf"></ion-radio>
-		  </ion-item>
-		
-		  <ion-item>
-		    <ion-label>Almeida Revisada Imprensa B&iacute;blica (AA)</ion-label>
-		    <ion-radio value="aa"></ion-radio>
-		  </ion-item>
-		</ion-list>
-		
-	</form>	
+	
 
 
 
