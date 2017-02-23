@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, PopoverController } from 'ionic-angular';
 import { ViewChild, ElementRef } from '@angular/core';
 import { PopoverPage } from '../popover/popover';
+import { RepositoryBookService } from '../../providers/repository-book-service';
 
 @Component( {
     selector: 'page-verse',
@@ -13,13 +14,15 @@ export class VersePage {
     verse: any;
     numVerse: any;
     arrayVerse = [];
+    blibleVersion;
 
     @ViewChild( 'popoverContent', { read: ElementRef }) content: ElementRef;
     @ViewChild( 'popoverText', { read: ElementRef }) text: ElementRef;
 
     constructor( public navCtrl: NavController,
         public navParams: NavParams,
-        private popoverCtrl: PopoverController ) {
+        private popoverCtrl: PopoverController,
+        public repositoryBookService: RepositoryBookService) {
 
         this.book = navParams.get( "book" );
         this.verse = navParams.get( "verse" );
@@ -42,6 +45,11 @@ export class VersePage {
             this.arrayVerse.push( item );
 
         }
+        this.blibleVersion = localStorage.getItem('bibleVersion');
+    }
+    
+    getNameVersion() {
+        return this.repositoryBookService.getNameVersion();
     }
 
 

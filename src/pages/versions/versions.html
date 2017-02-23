@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Ver&ccedil;&otilde;s da Biblia</ion-title>
+    <ion-title>Ver&ccedil;&otilde;es da Biblia</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,15 +20,15 @@
     Escolha a Vers&atilde;o
   </ion-list-header>
   <ion-item   >
-    <ion-label>Nova Vers&atilde;o Internacional (NVI)</ion-label>
+    <ion-label class="nameVersion">Nova Vers&atilde;o Internacional (NVI)</ion-label>
     <ion-radio value="nvi" (click)="changeVersion()" ></ion-radio>
   </ion-item>
   <ion-item>
-    <ion-label>Almeida Corrigida e Fiel (ACF)</ion-label>
+    <ion-label class="nameVersion">Almeida Corrigida e Fiel (ACF)</ion-label>
     <ion-radio value="acf" (click)="changeVersion()" ></ion-radio>
   </ion-item>
   <ion-item>
-    <ion-label>Almeida Revisada Imprensa B&iacute;blica (AA)</ion-label>
+    <ion-label class="nameVersion">Almeida Revisada Imprensa B&iacute;blica (AA)</ion-label>
     <ion-radio value="aa" (click)="changeVersion()" ></ion-radio>
   </ion-item>
 </ion-list>

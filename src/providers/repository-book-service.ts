@@ -15,22 +15,45 @@ export class RepositoryBookService extends SqlService {
     data: Object;
     bibleVersion;
 
-    constructor(  public http: Http,
+    constructor( public http: Http,
         public platform: Platform ) {
         super( platform, "RepositoryBook" );
-        
-        
+        localStorage.getItem( 'candidato' );
+        localStorage.getItem( 'candidato' );
+        localStorage.removeItem( 'candidato' );
+
     }
 
-    
-    
+    loadBibleVersion() {
+        if ( localStorage.getItem( 'bibleVersion' ) == null ) {
+            localStorage.setItem( 'bibleVersion', 'nvi' );
+        }
+        this.bibleVersion = localStorage.getItem( 'bibleVersion' );
+    }
+
+
+
     loadBooksPromisse() {
         let version = this.bibleVersion.toUpperCase();
-        return this.http.get('./bibliaLinguagem'+version+'.json');
+        return this.http.get( './bibliaLinguagem' + version + '.json' );
+    }
+
+    getNameVersion(  ) {
+
+        if ( this.bibleVersion == "nvi" ) {
+            return "Nova Verção Internacional (NVI)";
+        } else if ( this.bibleVersion == "acf" ) {
+            return "Almeida Corrigida e Fiel (ACF)";
+        } else if ( this.bibleVersion == "aa" ) {
+            return "Almeida Revisada Imprensa Bíblica (AA)";
+        }
+
+
+
     }
 
     getBooks() {
         return this.books;
     }
-    
+
 }

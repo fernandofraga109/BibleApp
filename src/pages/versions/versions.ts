@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {   FormGroup,   FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { RepositoryBookService } from '../../providers/repository-book-service';
 import { LoadingController } from 'ionic-angular';
 
@@ -10,10 +10,11 @@ import { LoadingController } from 'ionic-angular';
 })
 export class VersionsPage {
 
-  
-    version : string;
 
-    constructor( public navCtrl: NavController, public navParams: NavParams, public repositoryBookService: RepositoryBookService, public loadingCtrl: LoadingController ) {
+    version: string;
+
+    constructor( public navCtrl: NavController, public navParams: NavParams,
+                 public repositoryBookService: RepositoryBookService, public loadingCtrl: LoadingController ) {
         this.version = "version";
     }
 
@@ -24,68 +25,59 @@ export class VersionsPage {
         });
 
         loader.present().then(() => {
-            this.repositoryBookService.get("bibleVersion").then(( res ) => {
+            let res = localStorage.getItem( "bibleVersion" );
 
-                if ( res != null ) {
-                    this.repositoryBookService.bibleVersion = res;
-                    console.log( "CARREGOU ", res );
-                    loader.dismiss();
-                   
+            if ( res != null ) {
+                this.repositoryBookService.bibleVersion = res;
+                console.log( "LOCALIZOU VERISON ON STORAGE", res );
 
-                } else {
-                    this.repositoryBookService.set("bibleVersion", "nvi");
-                    this.repositoryBookService.bibleVersion = res;
-                    console.log( res, "NOT FOUND RESPONSE" );
-                    loader.dismiss();
-                }
-                this.version = this.repositoryBookService.bibleVersion;
-            }).catch(( err ) => {
-                console.log( err, "ERROR" );
-            });
+            } else {
+                this.repositoryBookService.loadBibleVersion();
+            }
+            this.version = this.repositoryBookService.bibleVersion;
+            loader.dismiss();
 
         });
-        
-        
+
+
     }
 
-    
+
     changeVersion() {
         let loader = this.loadingCtrl.create( {
             content: 'Carregando...',
         });
-
+        console.log(this.version, "version select");
         loader.present().then(() => {
-            this.repositoryBookService.update("bibleVersion", this.version).then(( res ) => {
-
+            localStorage.removeItem('bibleVersion');
+            localStorage.setItem('bibleVersion',this.version);
+            
+            this.repositoryBookService.bibleVersion = this.version;
+            this.repositoryBookService.loadBooksPromisse().toPromise().then(( res ) => {
                 if ( res != null ) {
-                    this.repositoryBookService.bibleVersion = this.version;
-                    console.log( this.version, "ALTERANDO VERSAO" );
-                    
-                    
-
+                    let body = JSON.parse( res.text() );
+                    this.repositoryBookService.books = [];
+                    for ( let i = 0; i < body.length; i++ ) {
+                        this.repositoryBookService.books.push( body[i] );
+                    }
+               
                 } else {
                     console.log( res, "NOT FOUND RESPONSE" );
                 }
-                this.getChecked(this.version);
-                loader.dismiss();
+
             }).catch(( err ) => {
                 console.log( err, "ERROR" );
             });
-
+            
+            
+            loader.dismiss();
+            
+        }).catch(( err ) => {
+            console.log( err, "ERROR" );
         });
-      
+
+
     }
-    
-    getChecked(v) {
-        if (v == this.version) {
-            console.log(v, "VVVVVV  TRUR");
-            console.log(this.version, "VERSION TRUE");
-            return "true";
-        } else {
-            console.log(v, "VVVVVV  FASLSE");
-            console.log(this.version, "VERSION FASLSE");
-            return "";
-        }
-    }
+
 
 }

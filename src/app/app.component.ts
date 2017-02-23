@@ -24,7 +24,7 @@ export class MyApp {
     rootPage: any = BookSearchPage;
     @ViewChild( 'content' ) navCtrl: NavController;
 
-    constructor( public platform: Platform, private menuCtrl: MenuController, ) {
+    constructor( public platform: Platform, private menuCtrl: MenuController ) {
         this.initializeApp();
         
         this.pages = [

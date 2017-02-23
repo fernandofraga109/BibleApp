@@ -53,7 +53,13 @@
 		    </button>
 	   	</ion-col>
 	    <ion-col width-80  >
-
+	    	<div style="text-align: center !important; margin-top: 5px !important;" >
+				<button ion-button icon-left (click)="changeVersion()" small outline  >
+			    	<ion-icon name="browsers">   		
+			    	</ion-icon>
+			    	 <ion-label class="nameVersionToobar">{{getNameVersion()}}</ion-label>
+			    </button>
+		    </div>
 	   	</ion-col>
 
 	   	<ion-col width-10  >
