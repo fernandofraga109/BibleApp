@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="base">
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -36,12 +36,12 @@
 
 <ion-footer >
 
-  <ion-toolbar no-border-bottom>
-    <ion-segment [(ngModel)]="ordem">
-      <ion-segment-button value="normal">
+  <ion-toolbar no-border-bottom color="base">
+    <ion-segment [(ngModel)]="ordem" color="white">
+      <ion-segment-button value="normal" color="white">
         Tradicional
       </ion-segment-button>
-      <ion-segment-button value="alfabetica">
+      <ion-segment-button value="alfabetica" color="white">
         Ordem Alfabética
       </ion-segment-button>
     </ion-segment>

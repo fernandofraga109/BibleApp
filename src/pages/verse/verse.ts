@@ -3,6 +3,8 @@ import { NavController, NavParams, PopoverController } from 'ionic-angular';
 import { ViewChild, ElementRef } from '@angular/core';
 import { PopoverPage } from '../popover/popover';
 import { RepositoryBookService } from '../../providers/repository-book-service';
+import { VersionsPage } from '../versions/versions';
+import { BookVersePage } from '../book-verse/book-verse';
 
 @Component( {
     selector: 'page-verse',
@@ -33,7 +35,15 @@ export class VersePage {
     }
 
     ionViewDidLoad() {
+        console.log("ionViewDidLoad 1");
         this.loadVerse();
+    }
+    
+    ionViewDidEnter() {
+        console.log("ionViewDidEnter 2");
+    }
+    ionViewWillEnter() {
+        console.log("ionViewWillEnter 3");
     }
 
     loadVerse() {
@@ -99,6 +109,16 @@ export class VersePage {
 
     lastVerse() {
         return this.book.chapters.length;
+    }
+    
+    changeVersion() {
+        let page: any = VersionsPage;
+        this.navCtrl.push( page );
+    }
+    
+    openBookVerse() {
+        let page: any = BookVersePage;
+        this.navCtrl.push( page, this.book );
     }
 
 }

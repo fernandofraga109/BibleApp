@@ -1,0 +1,47 @@
+
+<ion-header>
+
+  <ion-navbar color="base">
+   
+    <ion-segment [(ngModel)]="ordem" color="white">
+      <ion-segment-button value="livros" color="white">
+        Livros
+      </ion-segment-button>
+      <ion-segment-button value="capitulos" color="white">
+        Capítulos
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+ <div [ngSwitch]="ordem">
+ <div *ngSwitchCase="'livros'">
+  <ion-searchbar   (ionInput)="getItems($event)" placeholder="Buscar" cancelButtonText="Cancelar"></ion-searchbar>
+   <ion-list>
+    <ion-item *ngFor="let item of items" (click)="openBook(item.number)">
+     {{ item.book }}
+    </ion-item>
+  </ion-list>
+ </div>
+  <div *ngSwitchCase="'capitulos'">
+  <ion-grid>
+  <ion-row *ngFor="let row of grid">
+  	 
+    <ion-col width-20 *ngFor="let v of row">
+      <div style="text-align:center !important">
+      <button (click)="openVerse(v)" ion-button color="dark" clear>{{ getRow(v) }}</button>
+      </div>
+   	</ion-col>
+   
+  </ion-row>
+</ion-grid>
+  </div>
+ 
+</div>
+
+</ion-content>

@@ -20,12 +20,27 @@
 .toolbarFooter  {
     height: 45px !important;
     min-height: 46px !important;
+       
 
 }
 
 .toolbarFooter ion-icon {
     display: inline-block;
     font-size: 1.9em  !important;
+     color: #FFFFFF !important;
+}
+
+.item-md {
+	color: rgba(0, 0, 0, 0.54) !important;
+}
+.item-ios {
+	color: rgba(0, 0, 0, 0.54) !important;
+ }
+ .content-md {
+ 	color: rgba(0, 0, 0, 0.72) !important;
+}
+ .content-ios {
+ 	color: rgba(0, 0, 0, 0.72) !important;
 }
 
 .toolbarFooter ion-icon .meio {
@@ -34,8 +49,14 @@
 }
 
 .nameVersion {
-    font-size: 11px  !important;
+    font-size: 13px  !important;
 }
 .nameVersionToobar {
     font-size: 10px  !important;
+     color: #FFFFFF !important;
+}
+
+.nameVersionToobarUp {
+    font-size: 15px  !important;
+     color: #FFFFFF !important;
 }

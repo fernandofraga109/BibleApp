@@ -6,8 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{getNameBook()}}</ion-title>
+  <ion-navbar color="base">
+  <div style="text-align: center !important; margin-top: 5px !important;" >
+	<button ion-button icon-left color="white" (click)="openBookVerse()"  outline  >
+    	
+    	 <ion-label class="nameVersionToobarUp">{{getNameBook()}}</ion-label>
+    </button>
+   </div>
+    
     <ion-buttons end>
       <button ion-button icon-only (click)="presentPopover($event)">
         <ion-icon name="build"></ion-icon>
@@ -43,7 +49,7 @@
 </ion-content>
 
 <ion-footer >
-  <ion-toolbar class="toolbarFooter" >
+  <ion-toolbar class="toolbarFooter" color="base" >
     <ion-grid>
 	  <ion-row>
 
@@ -54,8 +60,8 @@
 	   	</ion-col>
 	    <ion-col width-80  >
 	    	<div style="text-align: center !important; margin-top: 5px !important;" >
-				<button ion-button icon-left (click)="changeVersion()" small outline  >
-			    	<ion-icon name="browsers">   		
+				<button ion-button icon-left color="white" (click)="changeVersion()" small outline  >
+			    	<ion-icon name="browsers" >   		
 			    	</ion-icon>
 			    	 <ion-label class="nameVersionToobar">{{getNameVersion()}}</ion-label>
 			    </button>

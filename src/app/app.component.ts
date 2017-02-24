@@ -8,6 +8,7 @@ import { BookSearchPage } from '../pages/book-search/book-search';
 import { VersePage } from '../pages/verse/verse';
 import { VersionsPage } from '../pages/versions/versions';
 import { PopoverPage } from '../pages/popover/popover';
+import { BookVersePage } from '../pages/book-verse/book-verse';
 
 //prividers
 import { RepositoryBookService } from '../providers/repository-book-service';
