@@ -46,8 +46,9 @@ export class RepositoryBookService extends SqlService {
             return "Almeida Corrigida e Fiel (ACF)";
         } else if ( this.bibleVersion == "aa" ) {
             return "Almeida Revisada Imprensa Bíblica (AA)";
+        } else if ( this.bibleVersion == "am" ) {
+            return "A Mensagem (AM)";
         }
-
 
 
     }
