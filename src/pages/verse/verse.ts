@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, PopoverController } from 'ionic-angular';
-import { ViewChild, ElementRef } from '@angular/core';
+import { ViewChild, ElementRef , PipeTransform} from '@angular/core';
 import { PopoverPage } from '../popover/popover';
 import { RepositoryBookService } from '../../providers/repository-book-service';
 import { VersionsPage } from '../versions/versions';
@@ -10,12 +10,13 @@ import { BookVersePage } from '../book-verse/book-verse';
     selector: 'page-verse',
     templateUrl: 'verse.html'
 })
-export class VersePage {
+export class VersePage  implements PipeTransform {
 
     book: any;
     verse: any;
     numVerse: any;
     arrayVerse = [];
+    
     blibleVersion;
 
     @ViewChild( 'popoverContent', { read: ElementRef }) content: ElementRef;
@@ -45,10 +46,14 @@ export class VersePage {
     ionViewWillEnter() {
         console.log("ionViewWillEnter 3");
     }
-
+    
+   
+ 
     loadVerse() {
         this.arrayVerse = [];
-        var nullArray = [];
+        let nullArray = [];
+        let myMap = new Map();
+        
         for ( let key in this.verse[this.numVerse] ) {
             var item = {};
             item[key] = this.verse[this.numVerse][key];
@@ -56,12 +61,64 @@ export class VersePage {
 
         }
         this.blibleVersion = localStorage.getItem('bibleVersion');
+        
+        
+        if (this.blibleVersion =="am") {
+            this.arrayVerse = this.transform(this.arrayVerse);
+        }
+        
+        console.log(this.arrayVerse, "array verse");
+        
+        
     }
-    
+
     getNameVersion() {
         return this.repositoryBookService.getNameVersion();
     }
+    
+    transform( array: Array<any> ): Array<string> {
+        array.sort(( a: any, b: any ) => {
+        
+           let aC = Object.getOwnPropertyNames( a );
+           let bC = Object.getOwnPropertyNames( b );
+           
+           
+           let resA = aC[0].split("-");
+           let resB = bC[0].split("-");
+           
+           let comparacaA = +resA[0];
+           let comparacaB = +resB[0];
+           
+           if ( comparacaA < comparacaB ) {
+                return -1;
+            } else if ( comparacaA > comparacaB ) {
+                return 1;
+            } else {
+                return 0;
+            }
+            
+        });
+        return array;
+    }
 
+    
+    /*transform(value: any, args?: any[]): any[] {
+            // create instance vars to store keys and final output
+            let keyArr: any[] = Object.keys(value),
+                dataArr = [];
+    
+            console.log(keyArr, "keyArr");
+
+            // loop through the object,
+            // pushing values to the return array
+            keyArr.forEach((key: any) => {
+                dataArr.push(value[key]);
+            });
+
+            // return the resulting array
+            return dataArr;
+        }
+*/
 
     getArrayVerse() {
         return this.arrayVerse;
