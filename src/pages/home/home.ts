@@ -43,6 +43,23 @@ export class HomePage {
     }
     
     
+    favoritePromisses() {
+        if (localStorage.getItem("favoritePromisse"+this.numVerseRandon) ==null) { 
+            localStorage.setItem("favoritePromisse"+this.numVerseRandon, this.numVerseRandon);
+        } else {
+            localStorage.removeItem("favoritePromisse"+this.numVerseRandon);
+        }
+        
+    }
+    
+    getFavoriteIcon() {
+        if (localStorage.getItem("favoritePromisse"+this.numVerseRandon) ==null) {
+            return "bookmark";
+        } else {
+            return "checkmark-circle";
+        }
+    }
+    
     nextVerse() {
         this.numVerseRandon = this.numVerseRandon + 1;
         if (this.numVerseRandon > 269) {
