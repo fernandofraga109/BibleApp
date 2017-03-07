@@ -9,6 +9,8 @@ import { VersePage } from '../pages/verse/verse';
 import { VersionsPage } from '../pages/versions/versions';
 import { PopoverPage } from '../pages/popover/popover';
 import { BookVersePage } from '../pages/book-verse/book-verse';
+import { HomePage } from '../pages/home/home';
+import { PromissesPage } from '../pages/promisses/promisses';
 
 //prividers
 import { RepositoryBookService } from '../providers/repository-book-service';
@@ -22,7 +24,7 @@ export class MyApp {
     @ViewChild( Nav ) nav: Nav;
 
     pages: Array<{ component: any, title: string, icon: string }>;
-    rootPage: any = BookSearchPage;
+    rootPage: any = HomePage;
     @ViewChild( 'content' ) navCtrl: NavController;
 
     constructor( public platform: Platform, private menuCtrl: MenuController ) {
@@ -30,7 +32,8 @@ export class MyApp {
         
         this.pages = [
                       { component: VersionsPage, title: 'Versão', icon: 'browsers' },
-                      { component: BookSearchPage, title: 'Livros', icon: 'bookmarks' }
+                      { component: BookSearchPage, title: 'Livros', icon: 'bookmarks' },
+                      { component: PromissesPage, title: 'Promessas', icon: 'copy' }
                   ];
         
     }

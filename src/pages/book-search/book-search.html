@@ -28,6 +28,24 @@
     </ion-item>
   </ion-list>
   </div>
+  
+  <div *ngSwitchCase="'nt'">
+  <ion-searchbar  (ionInput)="getItemsNT($event)" placeholder="Buscar" cancelButtonText="Cancelar"></ion-searchbar>
+   <ion-list>
+    <ion-item *ngFor="let item of itemsNT" (click)="openBook(item.number)">
+     {{ item.book }}
+    </ion-item>
+  </ion-list>
+  </div>
+  
+  <div *ngSwitchCase="'vt'">
+  <ion-searchbar  (ionInput)="getItemsVT($event)" placeholder="Buscar" cancelButtonText="Cancelar"></ion-searchbar>
+   <ion-list>
+    <ion-item *ngFor="let item of itemsVT" (click)="openBook(item.number)">
+     {{ item.book }}
+    </ion-item>
+  </ion-list>
+  </div>
  
 </div>
 
@@ -37,12 +55,18 @@
 <ion-footer >
 
   <ion-toolbar no-border-bottom color="base">
-    <ion-segment [(ngModel)]="ordem" color="white">
-      <ion-segment-button value="normal" color="white">
+    <ion-segment [(ngModel)]="ordem" color="white" >
+      <ion-segment-button value="normal" color="white"  >
         Tradicional
       </ion-segment-button>
       <ion-segment-button value="alfabetica" color="white">
-        Ordem Alfabética
+        Alfabética
+      </ion-segment-button>
+      <ion-segment-button value="vt" color="white">
+        Velho
+      </ion-segment-button>
+      <ion-segment-button value="nt" color="white">
+        Novo
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="base">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+<ion-grid>
+  <ion-row>
+
+    <ion-col width-5 >
+ 		<button ion-button clear (click)="privioustVerse()" style="padding: 0px 2px !important;" >
+	    	<ion-icon name="arrow-back"></ion-icon>
+	    </button>
+   	</ion-col>
+    <ion-col width-90  >
+    	<ion-card>
+		  <ion-card-header>
+		    {{getPlace()}}
+		  </ion-card-header>
+		  <ion-card-content>
+		    {{getVerse()}}
+		  </ion-card-content>
+		</ion-card>
+
+   	</ion-col>
+
+   	<ion-col width-5  >
+   		<button ion-button clear (click)="nextVerse()" style="padding: 0px 2px !important;">
+	    	<ion-icon name="arrow-forward"> </ion-icon>
+	    </button>
+    </ion-col>
+
+  </ion-row>
+
+</ion-grid>
+
+ <ion-row>
+ 	
+	<button ion-button full (click)="openBookSearch()" style="padding: 0px 2px !important;">
+    	<ion-icon name="arrow-forward"> Abrir Biblia </ion-icon>
+    </button>
+ 	
+ </ion-row>
+
+
+</ion-content>
