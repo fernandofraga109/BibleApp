@@ -31,9 +31,9 @@ export class MyApp {
         this.initializeApp();
         
         this.pages = [
-                      { component: VersionsPage, title: 'Versão', icon: 'browsers' },
-                      { component: BookSearchPage, title: 'Livros', icon: 'bookmarks' },
-                      { component: PromissesPage, title: 'Promessas', icon: 'copy' }
+                      { component: BookSearchPage, title: 'Bília', icon: 'bookmarks' },
+                      { component: VersionsPage, title: 'Verções da Bíblia', icon: 'browsers' },
+                      { component: PromissesPage, title: 'Promessas Bíblicas', icon: 'copy' }
                   ];
         
     }

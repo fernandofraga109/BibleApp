@@ -36,7 +36,7 @@ export class BookSearchPage {
         if (this.ordem=="normal") {
             return "Livros";
         } else if (this.ordem=="alfabetica") {
-            return "Ordem Alfabetica";
+            return "Ordem Alfabética";
         } else if (this.ordem=="nt") {
             return "Novo Testamento";
         } else if (this.ordem=="vt") {
