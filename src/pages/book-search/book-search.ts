@@ -32,6 +32,18 @@ export class BookSearchPage {
         this.initializeItems();
     }
 
+    getTitle() {
+        if (this.ordem=="normal") {
+            return "Livros";
+        } else if (this.ordem=="alfabetica") {
+            return "Ordem Alfabetica";
+        } else if (this.ordem=="nt") {
+            return "Novo Testamento";
+        } else if (this.ordem=="vt") {
+            return "Velho Testamento";
+        }
+    }
+    
     initializeItems() {
         
         this.itemsNT = [
