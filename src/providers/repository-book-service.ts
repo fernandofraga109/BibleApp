@@ -41,7 +41,7 @@ export class RepositoryBookService extends SqlService {
     getNameVersion(  ) {
 
         if ( this.bibleVersion == "nvi" ) {
-            return "Nova Verção Internacional (NVI)";
+            return "Nova Versão Internacional (NVI)";
         } else if ( this.bibleVersion == "acf" ) {
             return "Almeida Corrigida e Fiel (ACF)";
         } else if ( this.bibleVersion == "aa" ) {

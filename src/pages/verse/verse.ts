@@ -16,6 +16,7 @@ export class VersePage  implements PipeTransform {
     verse: any;
     numVerse: any;
     arrayVerse = [];
+    indexBook: any;
     
     blibleVersion;
 
@@ -27,8 +28,11 @@ export class VersePage  implements PipeTransform {
         private popoverCtrl: PopoverController,
         public repositoryBookService: RepositoryBookService) {
 
-        this.book = navParams.get( "book" );
         this.verse = navParams.get( "verse" );
+        this.indexBook = navParams.get( "indexBook" );
+        this.book = this.repositoryBookService.getBooks()[this.indexBook];
+        
+        
         this.numVerse = Object.getOwnPropertyNames( this.verse );
         console.log( this.book, "BOOK ON VERSE" );
         console.log( this.verse, "VERSE ON VERSE" );
@@ -42,6 +46,7 @@ export class VersePage  implements PipeTransform {
     
     ionViewDidEnter() {
         console.log("ionViewDidEnter 2");
+        this.loadVerse();
     }
     ionViewWillEnter() {
         console.log("ionViewWillEnter 3");
@@ -53,6 +58,11 @@ export class VersePage  implements PipeTransform {
         this.arrayVerse = [];
         let nullArray = [];
         let myMap = new Map();
+        
+        this.book = this.repositoryBookService.getBooks()[this.indexBook];
+        this.verse = this.book.chapters[this.numVerse-1];
+        
+        
         
         for ( let key in this.verse[this.numVerse] ) {
             var item = {};

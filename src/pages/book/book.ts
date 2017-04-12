@@ -14,6 +14,7 @@ export class BookPage {
     parameters: any;
     book: any;
     grid: Array<Array<string>>; //array of arrays
+    indexBook: any;
 
 
     constructor( public navCtrl: NavController,
@@ -88,7 +89,8 @@ export class BookPage {
         console.log( page, "ABRINDO LIVRO" );
         this.navCtrl.push( page, {
                                     "book": this.book,
-                                    "verse": verse
+                                    "verse": verse,
+                                    "indexBook": this.indexBook
                                   });
 
     }
@@ -97,8 +99,8 @@ export class BookPage {
 
     ionViewDidLoad() {
         console.log( 'ionViewDidLoad BookPage' );
-        let index = this.parameters.data;
-        this.loadBook( index );
+        this.indexBook = this.parameters.data;
+        this.loadBook( this.indexBook );
     }
 
 
