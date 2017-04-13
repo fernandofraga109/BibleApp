@@ -5,13 +5,16 @@ import { PopoverController, NavParams } from 'ionic-angular';
 
 @Component( {
     template: `
-    <ion-list radio-group [(ngModel)]="fontFamily" (ionChange)="changeFontFamily()" class="popover-page">
+    <ion-list class="popover-page">
       <ion-row>
         <ion-col>
-          <button (click)="changeFontSize('smaller')" ion-item detail-none class="text-button text-smaller">A</button>
+          <button (click)="changeFontSizeSmall()" ion-item detail-none class="text-button text-smaller">A</button>
         </ion-col>
         <ion-col>
-          <button (click)="changeFontSize('larger')" ion-item detail-none class="text-button text-larger">A</button>
+          <button (click)="changeFontSizeNormal()" ion-item detail-none class="text-button">A</button>
+        </ion-col>
+        <ion-col>
+          <button (click)="changeFontSizeBig()" ion-item detail-none class="text-button text-larger">A</button>
         </ion-col>
       </ion-row>
       <ion-row class="row-dots">
@@ -97,8 +100,17 @@ export class PopoverPage {
         this.textEle.style.color = this.colors[color].fg;
     }
 
-    changeFontSize( direction ) {
-        this.textEle.style.fontSize = direction;
+    changeFontSizeSmall( direction ) {
+        console.log(this.textEle.style, "tamanho da fonte");
+        this.textEle.style.fontSize = "1.1rem";
+    }
+    changeFontSizeNormal( direction ) {
+        console.log(this.textEle.style, "tamanho da fonte");
+        this.textEle.style.fontSize = "1.6rem";
+    }
+    changeFontSizeBig( direction ) {
+        console.log(this.textEle.style, "tamanho da fonte");
+        this.textEle.style.fontSize = "2.0rem";
     }
 
     changeFontFamily() {
